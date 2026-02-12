@@ -1,0 +1,10 @@
+crewai
+ipykernel
+crewai_tools
+load_dotenv
+langchain_groq
+langchain_community
+langchain
+langchain_classic
+litellm
+youtube-transcript-api
