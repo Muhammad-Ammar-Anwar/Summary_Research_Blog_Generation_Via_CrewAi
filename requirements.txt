@@ -8,3 +8,5 @@ langchain
 langchain_classic
 litellm
 youtube-transcript-api
+flask
+litellm[proxy]

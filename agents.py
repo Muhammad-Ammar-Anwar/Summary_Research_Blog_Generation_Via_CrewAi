@@ -19,7 +19,7 @@ blog_researcher=Agent(
     backstory="Expert in understanding videos in AI, Data Science, Machine learning, Generative AI and extracting key insights",
     llm=llm,
     tools=[yt_tool],
-    allow_delegation=True
+    allow_delegation=False
 )
 
 
