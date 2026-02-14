@@ -18,22 +18,28 @@ write_Task=Task(
         "Write in a clear, accessible style that explains complex topics simply. "
         "Include an introduction, main content sections, and a conclusion."
     ),
-    expected_output='A well structured blog post (300 - 800 words) about the video content with clear sections and engaging narrative',
+    expected_output='A well structured blog post (500 - 800 words) about the video content with clear sections and engaging narrative',
     tools=[yt_tool],
     agent=blog_writer,
     async_exectuction=False,
-    output_file='new-blog-post.md',
+    # output_file='new-blog-post.md',
 )
 
 Summary_task = Task(
     description=(
-        "Using the transcript from the YouTube video: {topic}, create a comprehensive summary. "
-        "Focus on the main topics discussed, key concepts explained, and important takeaways. "
-        "Write in clear, simple language that anyone can understand. "
-        "Organize the summary into multiple paragraphs covering different aspects of the video."
+        "1. First, use the yt_tool to get the transcript from the YouTube video: {topic}\n"
+        "2. Then, analyze the transcript and write a comprehensive summary covering:\n"
+        "   - Main topics and themes discussed\n"
+        "   - Key concepts and explanations\n"
+        "   - Important takeaways and conclusions\n"
+        "3. Write in clear, simple language organized into 3-5 paragraphs.\n"
+        "4. Do NOT call any more tools after getting the transcript - just write the summary."
     ),
-    expected_output='A detailed summary of 200-400 words with multiple paragraphs explaining the video content in simple, accessible language',
+    expected_output=(
+        'A detailed summary of 200-400 words with 3-5 well-structured paragraphs that explain '
+        'the video content in simple, accessible language. The summary should be complete and ready to present.'
+    ),
     tools=[yt_tool],
     agent=blog_Summary_writer,
-    output_file='video-summary.md',
+    # output_file='video-summary.md',
 )

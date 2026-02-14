@@ -8,7 +8,8 @@ os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
 llm = LLM(
     model="groq/llama-3.1-8b-instant",  # Smaller, faster model
-    api_key=os.getenv("GROQ_API_KEY")
+    api_key=os.getenv("GROQ_API_KEY"),  # Limit response tokens to stay within rate limits
+    temperature=0.7
 )
 
 blog_researcher=Agent(
@@ -46,11 +47,13 @@ blog_Summary_writer = Agent(
     backstory=(
         "You are an expert content summarizer specializing in transforming "
         "long-form video content into well-structured, informative, and easy-to-read summaries. "
-        "You extract key insights, main arguments, important examples, and conclusions "
-        "while eliminating unnecessary details. Your summaries are accurate, "
-        "engaging, and professionally written."
+        "After retrieving the transcript using the yt_tool, you immediately analyze it and write "
+        "a comprehensive summary. You extract key insights, main arguments, important examples, "
+        "and conclusions while eliminating unnecessary details. You ALWAYS write the final summary "
+        "directly without asking for more tools or information."
     ),
     llm=llm,
     tools=[yt_tool],
-    allow_delegation=False
+    allow_delegation=False,
+    max_iter=3  # Limit iterations to prevent endless tool calls
 )

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Processor Using CrewAI Agents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body data-theme="dark">
+    <div class="container">
+        <header>
+            <div class="theme-toggle" id="themeToggle">
+                <span class="theme-icon">🌙</span>
+                <span class="theme-label">Dark Mode</span>
+            </div>
+            <h1>AI Content Processor Using CrewAI Agents</h1>
+            <p class="subtitle">Transform Content Videos into Blogs, Summaries, and Research insights</p>
+        </header>
+
+        <div class="main-card">
+            <!-- URL Input -->
+            <div class="input-section">
+                <label class="input-label">YouTube URL</label>
+                <div class="input-group">
+                    <input type="text" class="url-input" id="urlInput"
+                        placeholder="https://www.youtube.com/watch?v=...">
+                </div>
+            </div>
+
+            <!-- Action Selection -->
+            <div class="action-section">
+                <label class="input-label">Select Action</label>
+                <div class="action-buttons">
+                    <div class="action-card" data-action="blog">
+                        <div class="action-card-content">
+                            <span class="action-icon">📝</span>
+                            <h3 class="action-title">Generate Blog</h3>
+                            <p class="action-description">Convert video content into a comprehensive blog post</p>
+                        </div>
+                    </div>
+                    <div class="action-card" data-action="summary">
+                        <div class="action-card-content">
+                            <span class="action-icon">📋</span>
+                            <h3 class="action-title">Create Summary</h3>
+                            <p class="action-description">Get a concise summary of the video content</p>
+                        </div>
+                    </div>
+                    <div class="action-card" data-action="research">
+                        <div class="action-card-content">
+                            <span class="action-icon">🔍</span>
+                            <h3 class="action-title">Research Analysis</h3>
+                            <p class="action-description">Deep dive research and analysis of the video topic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <button class="generate-btn" id="generateBtn" disabled>
+                Generate Content
+            </button>
+
+            <!-- Loading Animation -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p class="loading-text">Processing your request...</p>
+            </div>
+
+            <!-- Response Section -->
+            <div class="response-section" id="responseSection">
+                <div class="response-header">
+                    <h2 class="response-title" id="responseTitle">Result</h2>
+                    <button class="copy-btn" id="copyBtn">
+                        <span>📋</span>
+                        Copy to Clipboard
+                    </button>
+                </div>
+                <div class="response-content" id="responseContent">
+                    <!-- Content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Message</div>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
