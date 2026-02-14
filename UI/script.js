@@ -28,7 +28,7 @@
         }
 
         // API Configuration
-        const API_BASE_URL = 'http://127.0.0.1:5000';
+        const API_BASE_URL = 'https://ammaranwar-blog-crewai.hf.space';
 
         // DOM Elements
         let selectedAction = null;
@@ -289,4 +289,5 @@
             const pattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/;
             return pattern.test(url);
         }
+
 
