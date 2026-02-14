@@ -10,3 +10,4 @@ litellm
 youtube-transcript-api
 flask
 litellm[proxy]
+flask-cors
